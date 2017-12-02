@@ -15,10 +15,11 @@ export function addClass(el, className) {
 
 export function getData(el, name, val) {
   const prefix = 'data-'
+  name = prefix + name
   if (val) {
-    return el.setAttribute(prefix + name, val)
+    return el.setAttribute(name, val)
   }
-  return el.getAttribute(prefix + name)
+  return el.getAttribute(name)
 }
 
 let elementStyle = document.createElement('div').style
