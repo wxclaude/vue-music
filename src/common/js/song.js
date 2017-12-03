@@ -1,7 +1,7 @@
-import { getLyric, getVKey } from 'api/song'
-import { getUid } from './uid'
-import { ERR_OK } from 'api/config'
-import { Base64 } from 'js-base64'
+import {getLyric, getVKey} from 'api/song'
+import {getUid} from './uid'
+import {ERR_OK} from 'api/config'
+import {Base64} from 'js-base64'
 
 let urlMap = {}
 
@@ -39,6 +39,7 @@ export default class Song {
           this.lyric = Base64.decode(res.lyric)
           resolve(this.lyric)
         } else {
+          // eslint-disable-next-line
           reject('no lyric')
         }
       })

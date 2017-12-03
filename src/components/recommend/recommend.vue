@@ -38,7 +38,7 @@
   import Scroll from 'base/scroll/scroll'
   import Slider from 'base/slider/slider'
   import {getRecommend, getDiscList} from 'api/recommend'
-  import {ERR_OK} from 'api/configs'
+  import {ERR_OK} from 'api/config'
   export default {
     data() {
       return {
