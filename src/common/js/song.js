@@ -1,12 +1,12 @@
-import {getLyric, getVKey} from 'api/song'
-import {getUid} from './uid'
-import {ERR_OK} from 'api/config'
-import {Base64} from 'js-base64'
+import { getLyric, getVKey } from 'api/song'
+import { getUid } from './uid'
+import { ERR_OK } from 'api/config'
+import { Base64 } from 'js-base64'
 
 let urlMap = {}
 
 export default class Song {
-  constructor({id, mid, singer, name, album, duration, image, url}) {
+  constructor({id, mid, singer, name, album, duration, image}) {
     this.id = id
     this.mid = mid
     this.singer = singer
@@ -19,12 +19,7 @@ export default class Song {
     if (urlMap[this.id]) {
       this.url = urlMap[this.id]
     } else {
-      if (url) {
-        this.url = url
-        urlMap[this.id] = url
-      } else {
-        this._genUrl()
-      }
+      this._genUrl()
     }
   }
 
@@ -39,7 +34,6 @@ export default class Song {
           this.lyric = Base64.decode(res.lyric)
           resolve(this.lyric)
         } else {
-          // eslint-disable-next-line
           reject('no lyric')
         }
       })
